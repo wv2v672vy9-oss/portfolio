@@ -1,0 +1,133 @@
+/* フォント設定（明朝体） */
+body {
+    margin: 0; padding: 0;
+    font-family: "Shippori Mincho", serif;
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+    line-height: 1.8;
+}
+html { scroll-behavior: smooth; }
+section { scroll-margin-top: 80px; }
+
+/* ヘッダー */
+header {
+    display: flex; justify-content: space-between; padding: 20px 50px;
+    align-items: center; background-color: rgba(10, 10, 10, 0.9);
+    position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #222;
+}
+header .logo { font-weight: 600; font-size: 1.4rem; letter-spacing: 1px; }
+header ul { list-style: none; display: flex; gap: 30px; padding: 0; }
+header a { color: #bbb; text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+header a:hover { color: #fff; }
+
+/* メインビジュアル */
+.hero {
+    height: 60vh;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center;
+}
+.hero h1 { font-size: 3.5rem; margin: 0; letter-spacing: 0.2em; font-weight: 400; }
+.hero p { font-size: 1rem; letter-spacing: 0.1em; margin-top: 15px; color: #aaa; font-family: sans-serif; }
+
+/* ギャラリー全体設定 */
+.gallery { padding: 80px 5%; max-width: 1400px; margin: 0 auto; text-align: center; }
+.intro-text { margin-bottom: 60px; font-size: 1.1rem; color: #888; }
+
+/* ▼▼▼ オオワシ（特別展示）エリアの設定 ▼▼▼ */
+.featured-section {
+    max-width: 1000px; /* 横幅を程よく制限 */
+    margin: 0 auto 80px auto; /* 中央寄せ・下に余白 */
+    text-align: left;
+}
+/* オオワシの枠だけ少し横長にする */
+.featured-box {
+    aspect-ratio: 16/9 !important; /* 16:9の比率を強制 */
+}
+/* ▲▲▲ 特別展示ここまで ▲▲▲ */
+
+/* 作品グリッド（その他の作品） */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 60px 40px; /* 縦・横の隙間 */
+    text-align: left;
+}
+
+/* 作品単体共通設定 */
+.art-piece { display: flex; flex-direction: column; }
+
+/* 写真の枠組み（黒い余白を作る設定） */
+.img-box {
+    width: 100%;
+    aspect-ratio: 3/2; /* 基本は3:2 */
+    background-color: #000; /* 余白は黒 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    margin-bottom: 15px;
+    border: 1px solid #111;
+}
+
+.img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 写真をトリミングせず全体表示 */
+    transition: transform 0.6s ease;
+}
+.img-box img:hover { transform: scale(1.03); opacity: 0.9; }
+
+/* キャプションプレート */
+.caption-plate h4 {
+    margin: 0; font-size: 1.1rem; font-weight: 600; letter-spacing: 1px; color: #fff;
+}
+.caption-plate p {
+    margin: 5px 0 0; font-size: 0.8rem; color: #777; font-family: sans-serif;
+}
+
+/* About / Footer */
+.about { padding: 100px 20px; background-color: #111; text-align: center; }
+.about h2, footer h2 { font-size: 2rem; margin-bottom: 30px; font-weight: 400; letter-spacing: 2px; }
+.about p { color: #999; }
+
+footer { text-align: center; padding: 80px 20px 30px; background-color: #050505; border-top: 1px solid #222; }
+.btn {
+    display: inline-block; border: 1px solid #555; padding: 12px 50px;
+    color: #fff; text-decoration: none; transition: 0.3s; margin-bottom: 50px; letter-spacing: 1px;
+}
+.btn:hover { background: #fff; color: #000; border-color: #fff; }
+.copyright { font-size: 0.7rem; color: #444; font-family: sans-serif; }
+
+/* 拡大表示モーダル */
+.modal {
+    display: none; position: fixed; z-index: 1000;
+    left: 0; top: 0; width: 100%; height: 100%;
+    overflow: auto; background-color: rgba(0,0,0,0.95);
+    justify-content: center; align-items: center;
+    padding: 20px; box-sizing: border-box;
+}
+.modal-container {
+    max-width: 1000px; width: 100%; text-align: center;
+}
+.modal-content {
+    max-width: 100%; max-height: 70vh;
+    width: auto; height: auto;
+    display: inline-block;
+    box-shadow: 0 0 30px rgba(0,0,0,0.8);
+}
+.modal-caption-area {
+    margin-top: 20px; text-align: left; max-width: 600px; margin-left: auto; margin-right: auto;
+}
+#modalTitle {
+    font-size: 1.5rem; margin: 0 0 10px 0; color: #fff; letter-spacing: 2px;
+}
+#modalDesc {
+    font-size: 0.9rem; color: #aaa; line-height: 1.8; font-family: sans-serif;
+}
+
+.close {
+    position: absolute; top: 30px; right: 40px; color: #888;
+    font-size: 50px; font-weight: 100; transition: 0.3s; cursor: pointer; z-index: 1001;
+}
+.close:hover { color: #fff; }
